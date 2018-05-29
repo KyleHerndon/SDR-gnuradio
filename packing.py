@@ -3,7 +3,9 @@ from struct import *
 def middleStep(place, bitList):
 	return ((bitList[place+1] % 16) + ((bitList[place+1] - (bitList[place+1] % 16))/16)*2 + (bitList[place] % 16)*4 + ((bitList[place] - (bitList[place] % 16))/16)*8)
 def packaging(bits):
-	
+	#This function takes a block of 8 bytes for which each hexadecimal character is either 0 or 1
+#and, reinterpreting this block of 16 binary numbers as 2 big-endian bytes and returning them
+#in such a packed form
 	
 	bitListing = unpack('bbbbbbbb', bits)
 	#print(bitListing)
@@ -27,6 +29,7 @@ def packaging(bits):
 
 
 def packaging4(bits):
+	#Similar, but packs 4 bytes into 1 byte instead of 8 bytes into 2 bytes
 
 	bitListing = unpack('bbbb', bits)
 	#print(bitListing)
