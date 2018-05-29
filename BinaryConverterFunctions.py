@@ -2,6 +2,7 @@ hex2bin = dict('{:x} {:04b}'.format(x,x).split() for x in range(16))
 bin2hex = dict('{:b} {:x}'.format(x,x).split() for x in range(16))
  
 def float_dec2bin(d):
+    #changes decimal numbers to "binary non-integer" numbers (i.e., x = 23.34375, y = float_dec2bin(x), y <<< '1.011101011p+100')
     neg = False
     if d < 0:
         d = -d
@@ -13,6 +14,7 @@ def float_dec2bin(d):
             + bin(int(hx[p+2:]))[2:])
  
 def float_bin2dec(bn):
+    #changes "binary non-integer" numbers to decimal, returns 0 if certain input errors occur
     #print(bn)
     neg = False
     if bn[0] == '-':
@@ -22,6 +24,8 @@ def float_bin2dec(bn):
     if ('.' in bn):
     	dp = bn.index('.')
     else:
+	#checks to make sure input has a decimal point
+	
 	#print("bn = ", str(bn))
         return 0
     extra0 = '0' * ((4 - (dp % 4)) % 4)
@@ -32,6 +36,8 @@ def float_bin2dec(bn):
         dp = bn2.index('.')
     	p = bn2.index('p')
     else:
+	#checks to make sure there is a 'p' in the input (as in 1.011101011p+100)
+	
 	#print("bn = ", str(bn))
         return 0
     
