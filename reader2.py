@@ -2,6 +2,11 @@ import scipy, time, sys
 from BinaryConverterFunctions import float_dec2bin, float_bin2dec
 from packing import packaging, packaging4
 
+#Reads the file written by GNUradio, which SHOULD be a list of "binary non-integer" time stamps
+#separated by '\xfe\xdc'. Prints a list of decimal time stamps along with the number of times
+# they appeared (we expect them to appear many times in a row because GNUradio is outputting continuously
+# while the time stamp is being overwritten in finite time steps)
+
 print sys.argv
 Content = sys.argv[1]
 Samples = int(sys.argv[2])
@@ -16,7 +21,7 @@ while(check == 0):
 	checklist = packaging(Bin.read(8))
 
 	j=0
-	if checklist == '\xfe\xdc':
+	if checklist == '\xfe\xdc': #checking for header that marks the beginning of a timestamp
 		print("here")
 		#time.sleep(2)
 		check = 1
@@ -32,7 +37,7 @@ while(check == 0):
 			#print("writing...")
 			#Check.close()
 
-			if len(checklistcheck) < 8:
+			if len(checklistcheck) < 8: #less than 8 bytes after a header indicates EOF
 				print(i)
 				i=Samples
 				print(checklistcheck)
@@ -72,7 +77,7 @@ while(check == 0):
 					#print(Bin.tell())
 					TS = float_bin2dec(fileContent)
 					#print(TS)
-					List.append(TS)
+					List.append(TS) #appending the final decimal timestamp to the list of timestamps
 					#print(List)
 					i=i+1
 					Bin.seek(8,1)
@@ -99,6 +104,9 @@ z=1
 #firstone = 1
 
 print(len(List))
+
+#Going through the list to check for duplicates (and 0's, which are output 
+# by float_bin2dec to indicate an error)
 for k in range(len(List)):
 	Time = List[k]
 	if (Time != PrevTime and Time != 0):
