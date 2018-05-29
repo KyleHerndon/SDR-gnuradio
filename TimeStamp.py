@@ -1,6 +1,9 @@
 import time, sys;
 from BinaryConverterFunctions import float_dec2bin, float_bin2dec
 
+#Current version overwrites file "fileName" every "waitTime" seconds
+# with a "binary non-integer" formatted timestamp (preceded by the header "\xFE\xDC")
+
 fileName = sys.argv[1]
 waitTime = float(sys.argv[2])
 open("TSTestReceive", 'w').close()
