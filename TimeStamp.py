@@ -4,7 +4,7 @@ from BinaryConverterFunctions import float_dec2bin, float_bin2dec
 
 fileName = sys.argv[1]
 waitTime = float(sys.argv[2])
-open("TSTestReceive", 'w').close()
+g = open("TSTestReceive", 'w')
 ts = time.time()
 time.sleep(0)
 i=1
@@ -18,8 +18,7 @@ while(True):
 
     f.write(b'\xFE\xDC')
     f.write(data)
-
-    time.sleep(waitTime)
+    g.write(b'\xCD\xEF')
+    g.write(data)
+#    time.sleep(waitTime)
 f.close()
-
-
