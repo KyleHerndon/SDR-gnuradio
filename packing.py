@@ -13,11 +13,11 @@ def packaging(bits):
 	sixteensPlace = middleStep(0, bitListing)
 	onesPlace = middleStep(2, bitListing)
 
-	firstByte = 16*sixteensPlace + onesPlace
+	firstByte = 16 * sixteensPlace + onesPlace
 
 	sixteensPlace2 = middleStep(4, bitListing)
 	onesPlace2 = middleStep(6, bitListing)
-	secondByte = 16*sixteensPlace2 + onesPlace2
+	secondByte = 16 * sixteensPlace2 + onesPlace2
 
 
 	
@@ -43,5 +43,5 @@ def packaging4(bits):
 
 
 
-packaging("\x11\x11\x11\x10\x11\x01\x11\x00")
+#packaging(b'\x11\x11\x11\x10\x11\x01\x11\x00')
 #print(X)

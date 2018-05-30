@@ -1,8 +1,6 @@
 import time, sys;
+import struct
 from BinaryConverterFunctions import float_dec2bin, float_bin2dec
-
-#Current version overwrites file "fileName" every "waitTime" seconds
-# with a "binary non-integer" formatted timestamp (preceded by the header "\xFE\xDC")
 
 fileName = sys.argv[1]
 waitTime = float(sys.argv[2])
@@ -11,28 +9,17 @@ ts = time.time()
 time.sleep(0)
 i=1
 #while(time.time()<ts+.01):
-open(fileName, "wb").close()
+f = open(fileName, "wb")
 while(True):
-	f = open(fileName, "wb")
-	s=(time.time()*1000-ts*1000)
-	print(s)
-	#print(s)
-	t = float_dec2bin(s)
-	f.write("\xFE\xDC")
-	f.write(t)
-	#f.write("\xFE\xDC")
-	f.close()
-	#if((i % 10) == 0):
-		#f = open("TSTestReceive", "ab")
-		#s=(time.time()*1000-ts*1000)
-		#print("Check: " + str(s))
-		#t = float_dec2bin(s)
-		#f.write("\xFE\xDC")
-		#f.write(t)
-		#f.write("\xFE\xDC")
-		#f.close()
-	#i += 1
-	time.sleep(waitTime)
+    s=(time.time()*1000-ts*1000)
+    data = struct.pack('f', s)
 
+    print(s)
+
+    f.write(b'\xFE\xDC')
+    f.write(data)
+
+    time.sleep(waitTime)
+f.close()
 
 

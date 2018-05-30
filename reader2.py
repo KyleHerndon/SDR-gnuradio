@@ -1,127 +1,51 @@
-import scipy, time, sys
-from BinaryConverterFunctions import float_dec2bin, float_bin2dec
+import time, struct, sys
+import numpy as np
+from scipy import stats
+#from BinaryConverterFunctions import float_dec2bin, float_bin2dec
 from packing import packaging, packaging4
 
-#Reads the file written by GNUradio, which SHOULD be a list of "binary non-integer" time stamps
-#separated by '\xfe\xdc'. Prints a list of decimal time stamps along with the number of times
-# they appeared (we expect them to appear many times in a row because GNUradio is outputting continuously
-# while the time stamp is being overwritten in finite time steps)
+if len(sys.argv) != 3:
+    print("usage: python reader2.py filename <samples>")
+    exit()
 
-print sys.argv
-Content = sys.argv[1]
-Samples = int(sys.argv[2])
-#Bin = open("TSTestReceive", "rb")
-check = 0
-Pos = 0
+filenameFlag = sys.argv[1] # what file is it reading from?
+samplesFlag = int(sys.argv[2]) # how many things should it try to read
+RELATIVE = 1
 
-while(check == 0):
+samples = np.zeros(samplesFlag, dtype='float')
 
-	Bin = open(Content, "rb")
-	Bin.seek(Pos, 0)
-	checklist = packaging(Bin.read(8))
+file = open(filenameFlag, "rb")
+file.seek(pos, 0)
+#checklist = packaging(file.read(8))
+i = 0
+while(i < samplesFlag):
+    #checklistcheck = file.read(8)
+    checklistcheck = file.read(2)
 
-	j=0
-	if checklist == '\xfe\xdc': #checking for header that marks the beginning of a timestamp
-		print("here")
-		#time.sleep(2)
-		check = 1
-		i=0
-		List = []
-		while(i<Samples):
-			
-			checklistcheck = Bin.read(8)
-			
-			
-			#Check = open("Check", "ab")
-			#Check.write(checklist + "\n")
-			#print("writing...")
-			#Check.close()
+    #if len(checklistcheck) < 8:
+    if len(checklistcheck) < 2:
+        print(i)
+        i = samplesFlag
+        print(checklistcheck)
+        print("End of file")
+    else:
+        #checklist = packaging(checklistcheck)
+        checklist = checklistcheck
 
-			if len(checklistcheck) < 8: #less than 8 bytes after a header indicates EOF
-				print(i)
-				i=Samples
-				print(checklistcheck)
-				
-				print("End of file")
-			else:
-				checklist = packaging(checklistcheck)
-			if checklist == '\xfe\xdc':
-				#print("Gucci")
-				#time.sleep(2)
-				#print(j)
-				if (j>0):
-					Bin.seek(-1*(j+8), 1)
-				
-					#Check = open("Check", "wb")
-					#Check.write(Bin.read(j))
-					#print("writing...")
-					#Check.close()
+    if checklist == b'\xFE\xDC':
+        #(f,) = struct.unpack('f', packaging(file.read(8)))
+        (f,) = struct.unpack('f', file.read(4))
+        samples[i] = f
+        i+=1
+    else:
+        #file.seek(-7, RELATIVE)
+        file.seek(-1, RELATIVE)
+file.close()
 
-					#Bin.seek(-1*(j), 1)
-					#print(Bin.tell())
-					med = open("Medium", "wb")
-					#print(j)
-					for n in range(j/4):
-						bite = packaging4(Bin.read(4))
-						med.write(bite)
-					med.close()
-					
+freqs = stats.itemfreq(samples)
+errors = np.sum(samples[1:] < samples[:-1])
+print("There were", errors, "relating to timestamps decreasing")
 
-					point = Bin.tell()
-					#print("j = " + str(j))
-
-					with open("Medium", mode='rb') as file:
-						#file.seek(point)
-    						fileContent = file.read()
-						file.close()
-					#print(Bin.tell())
-					TS = float_bin2dec(fileContent)
-					#print(TS)
-					List.append(TS) #appending the final decimal timestamp to the list of timestamps
-					#print(List)
-					i=i+1
-					Bin.seek(8,1)
-					j=0
-				else:
-					print("weird...")
-
-			else:
-				#print("Now Here")
-				Bin.seek(-7,1)
-				j=j+1
-			
-			
-
-	else:
-		Bin.seek(-7,1)
-		Bin.close()
-		Pos = Pos +1
-
-
-#print(List)
-PrevTime = 0
-z=1
-#firstone = 1
-
-print(len(List))
-
-#Going through the list to check for duplicates (and 0's, which are output 
-# by float_bin2dec to indicate an error)
-for k in range(len(List)):
-	Time = List[k]
-	if (Time != PrevTime and Time != 0):
-		print("Time Stamp: " + str(Time))
-		print("Showed up " + str(z))
-		z = 1
-		PrevTime = Time
-#	elif (Time != PrevTime and Time != 0 and firstone == 1):
-#		PrevTime = Time
-#		z = z+1
-#		firstone = 0
-	elif (Time != 0):
-		z = z+1
-	else:
-		print("ERROR!")
-print("Time Stamp: " + str(Time))
-print("Showed up " + str(z))
-Bin.close()
+for k in freqs:
+    print("Time Stamp", k[0])
+    print("Showed up", int(k[1]), "times")

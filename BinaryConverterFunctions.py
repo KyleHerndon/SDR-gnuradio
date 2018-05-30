@@ -2,7 +2,6 @@ hex2bin = dict('{:x} {:04b}'.format(x,x).split() for x in range(16))
 bin2hex = dict('{:b} {:x}'.format(x,x).split() for x in range(16))
  
 def float_dec2bin(d):
-    #changes decimal numbers to "binary non-integer" numbers (i.e., x = 23.34375, y = float_dec2bin(x), y <<< '1.011101011p+100')
     neg = False
     if d < 0:
         d = -d
@@ -14,37 +13,32 @@ def float_dec2bin(d):
             + bin(int(hx[p+2:]))[2:])
  
 def float_bin2dec(bn):
-    #changes "binary non-integer" numbers to decimal, returns 0 if certain input errors occur
     #print(bn)
     neg = False
     if bn[0] == '-':
         bn = bn[1:]
         neg = True
-    #print(bn[0])	
+    #print(bn[0])   
     if ('.' in bn):
-    	dp = bn.index('.')
+        dp = bn.index('.')
     else:
-	#checks to make sure input has a decimal point
-	
-	#print("bn = ", str(bn))
+    #print("bn = ", str(bn))
         return 0
     extra0 = '0' * ((4 - (dp % 4)) % 4)
     bn2 = extra0 + bn
-    	
+        
     
     if ('.' in bn2 and 'p' in bn2):
         dp = bn2.index('.')
-    	p = bn2.index('p')
+        p = bn2.index('p')
     else:
-	#checks to make sure there is a 'p' in the input (as in 1.011101011p+100)
-	
-	#print("bn = ", str(bn))
+    #print("bn = ", str(bn))
         return 0
     
     
 
     hx = ''.join(bin2hex.get(bn2[i:min(i+4, p)].lstrip('0'), bn2[i])
-                 for i in range(0, dp+1, 4))
+for i in range(0, dp+1, 4))
 
     bn3 = bn2[dp+1:p]
     extra0 = '0' * (4 - (len(bn3) % 4))
@@ -52,29 +46,29 @@ def float_bin2dec(bn):
     #print(bn4)
 
     for i in range(0, len(bn4), 4):
-	if (bn4[i:i+4])=='0000':
-		hx += ''
+        if (bn4[i:i+4])=='0000':
+            hx += ''
         else:
             #print(bn4[i:i+4])
             try:
-    	        hx += ''.join(bin2hex.get(bn4[i:i+4].lstrip('0')))
+                hx += ''.join(bin2hex.get(bn4[i:i+4].lstrip('0')))
             except TypeError:
                 #print("Type error")
                 return 0
-    if('+' in bn2[p+2:]):
-	#print("bn = ", str(bn))
-        return 0
-    else:
+        if('+' in bn2[p+2:]):
+        #print("bn = ", str(bn))
+            return 0
+        else:
+            try:
+                hx = (('-' if neg else '') + '0x' + hx + bn2[p:p+2]
+                      + str(int('0b' + bn2[p+2:], 2)))
+            except ValueError:
+                print("Value error")
+                return 0
+        #print(hx)
         try:
-            hx = (('-' if neg else '') + '0x' + hx + bn2[p:p+2]
-                  + str(int('0b' + bn2[p+2:], 2)))
+            result = float.fromhex(hx)
         except ValueError:
             print("Value error")
-            return 0
-    #print(hx)
-    try:
-        result = float.fromhex(hx)
-    except ValueError:
-        print("Value error")
-        return 0	
-    return float.fromhex(hx)
+            return 0    
+        return float.fromhex(hx)
