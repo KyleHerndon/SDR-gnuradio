@@ -1,7 +1,6 @@
 import time, struct, sys
 import numpy as np
 from scipy import stats
-#from BinaryConverterFunctions import float_dec2bin, float_bin2dec
 from packing import packaging, packaging4
 
 if len(sys.argv) != 3:
@@ -15,34 +14,24 @@ RELATIVE = 1
 samples = np.zeros(samplesFlag, dtype='float')
 
 file = open(filenameFlag, "rb")
-file.seek(0, 0)
-#checklist = packaging(file.read(8))
 i = 0
 while(i < samplesFlag):
-    checklistcheck = file.read(8)
-    #checklistcheck = file.read(2)
+    chksum = b''.join(packaging(file.read(8), file.read(8)))
+    message = b''.join(packaging(file.read(8), file.read(8)))
 
-    if len(checklistcheck) < 8:
-    #if len(checklistcheck) < 2:
+    if len(chksum) < 4 or len(data) < 4:
         print(i)
         i = samplesFlag
-        print(checklistcheck)
         print("End of file")
-    else:
-        checklist = packaging(checklistcheck)
-        #checklist = checklistcheck
 
-    if checklist == b'\xFE\xDC':
-        a = packaging(file.read(8))
-        b = packaging(file.read(8))
-        c = b''.join([a,b])
-        (f,) = struct.unpack('f', c)
-        #(f,) = struct.unpack('f', file.read(4))
-        samples[i] = f
+    (data,) = struct.unpack('f', message)
+    hash2 = hash(data)[-4:]
+
+    if chksum == hash2:
+        samples[i] = data
         i+=1
     else:
-        file.seek(-7, RELATIVE)
-        #file.seek(-1, RELATIVE)
+        file.seek(-31, RELATIVE)
 file.close()
 
 freqs = stats.itemfreq(samples)
@@ -52,3 +41,22 @@ print("There were", errors, "relating to timestamps decreasing")
 for k in freqs:
     print("Time Stamp", k[0])
     print("Showed up", int(k[1]), "times")
+
+"""for k in range(len(samples)):
+    Time = samples[k]
+    if (Time != PrevTime and Time != 0):
+        print("Time Stamp: " + str(Time))
+        print("Showed up " + str(z))
+        z = 1
+        PrevTime = Time
+#   elif (Time != PrevTime and Time != 0 and firstone == 1):
+#       PrevTime = Time
+#       z = z+1
+#       firstone = 0
+    elif (Time != 0):
+        z = z+1
+    else:
+        print("ERROR!")
+print("Time Stamp: " + str(Time))
+print("Showed up " + str(z))
+Bin.close()"""
