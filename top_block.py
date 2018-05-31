@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Fri Mar 30 15:46:17 2018
+# Generated: Thu May 31 13:35:02 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -25,8 +25,8 @@ from gnuradio import qtgui
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
-import iio
 import osmosdr
+import pipes
 import sip
 import sys
 import time
@@ -107,7 +107,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
 
 
-        self.pluto_sink_0 = iio.pluto_sink('ip:pluto.local', 920000000, samp_rate, 20000000, 0x4000, False, 10.0, '', True)
+        self.pipes_pipereader_x_0 = pipes.pipereader_x('/temp.txt')
         self.digital_qam_mod_0 = digital.qam.qam_mod(
           constellation_points=constellations,
           mod_code="gray",
@@ -130,18 +130,16 @@ class top_block(gr.top_block, Qt.QWidget):
           log=False,
           )
         self.blocks_unpacked_to_packed_xx_0_0 = blocks.unpacked_to_packed_bb(4, gr.GR_MSB_FIRST)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, '/home/dchaffee/gnuradio/latency/TimeStamp.bin', True)
         self.blocks_file_sink_0_0 = blocks.file_sink(gr.sizeof_char*1, '/home/dchaffee/gnuradio/latency/TSTestReceive', False)
         self.blocks_file_sink_0_0.set_unbuffered(True)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.blocks_file_source_0, 0), (self.digital_qam_mod_0, 0))
         self.connect((self.blocks_unpacked_to_packed_xx_0_0, 0), (self.blocks_file_sink_0_0, 0))
         self.connect((self.digital_qam_demod_0, 0), (self.blocks_unpacked_to_packed_xx_0_0, 0))
-        self.connect((self.digital_qam_mod_0, 0), (self.pluto_sink_0, 0))
         self.connect((self.digital_qam_mod_0, 0), (self.qtgui_sink_x_0_0, 0))
+        self.connect((self.pipes_pipereader_x_0, 0), (self.digital_qam_mod_0, 0))
         self.connect((self.rtlsdr_source_0, 0), (self.digital_qam_demod_0, 0))
 
     def closeEvent(self, event):
@@ -168,7 +166,6 @@ class top_block(gr.top_block, Qt.QWidget):
         self.samp_rate = samp_rate
         self.rtlsdr_source_0.set_sample_rate(self.samp_rate)
         self.qtgui_sink_x_0_0.set_frequency_range(0, self.samp_rate)
-        self.pluto_sink_0.set_params(920000000, self.samp_rate, 20000000, 10.0, '', True)
 
     def get_period_samples(self):
         return self.period_samples
