@@ -1,6 +1,7 @@
 import time, sys;
 import struct
 from BinaryConverterFunctions import float_dec2bin, float_bin2dec
+from hashlib import md5
 
 fileName = sys.argv[1]
 waitTime = float(sys.argv[2])
@@ -14,7 +15,12 @@ while(True):
     s=(time.time()*1000-ts*1000)
     data = struct.pack('f', s)
     (data2,) = struct.unpack('f',data)
-    chksum = struct.pack('l', hash(data2)[-4:])
+
+    h = md5.new()
+    h.update(data2)
+    h.digest()
+    
+    chksum = struct.pack('l', h[-4:])
 
     print(s)
 

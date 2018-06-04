@@ -1,5 +1,6 @@
 import time, struct, sys
 import numpy as np
+from hash import md5
 from scipy import stats
 from packing import packaging, packaging4
 
@@ -16,16 +17,18 @@ samples = np.zeros(samplesFlag, dtype='float')
 file = open(filenameFlag, "rb")
 i = 0
 while(i < samplesFlag):
-    chksum = b''.join(packaging(file.read(8), file.read(8)))
-    message = b''.join(packaging(file.read(8), file.read(8)))
+    chksum = b''.join(packaging(file.read(8)), packaging(file.read(8)))
+    message = b''.join(packaging(file.read(8)), packaging(file.read(8)))
 
-    if len(chksum) < 4 or len(data) < 4:
+    if len(chksum) < 4 or len(message) < 4:
         print(i)
         i = samplesFlag
         print("End of file")
 
     (data,) = struct.unpack('f', message)
-    hash2 = hash(data)[-4:]
+    hash2 = md5.new()
+    hash2.update(data2)
+    hash2.digest()
 
     if chksum == hash2:
         samples[i] = data
