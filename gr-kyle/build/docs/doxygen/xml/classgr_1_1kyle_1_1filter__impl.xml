@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classgr_1_1kyle_1_1filter__impl" kind="class" language="C++" prot="public">
+    <compoundname>gr::kyle::filter_impl</compoundname>
+    <basecompoundref refid="classgr_1_1kyle_1_1filter" prot="public" virt="non-virtual">gr::kyle::filter</basecompoundref>
+    <includes refid="filter__impl_8h" local="no">filter_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgr_1_1kyle_1_1filter__impl_1ac6af5ce524267e9dc511922d41957a24" prot="private" static="no" mutable="no">
+        <type>boost::hash&lt; unsigned int &gt;</type>
+        <definition>boost::hash&lt;unsigned int&gt; gr::kyle::filter_impl::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="33" column="1" bodyfile="/home/kh/gr-kyle/lib/filter_impl.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgr_1_1kyle_1_1filter__impl_1ae6a804bd3fd978e6a4008ac95324be64" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long gr::kyle::filter_impl::prev</definition>
+        <argsstring></argsstring>
+        <name>prev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="34" column="1" bodyfile="/home/kh/gr-kyle/lib/filter_impl.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgr_1_1kyle_1_1filter__impl_1a6bea070aa1d7b969b0dbee4050faf399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::kyle::filter_impl::filter_impl</definition>
+        <argsstring>(int msglen, int hashlen)</argsstring>
+        <name>filter_impl</name>
+        <param>
+          <type>int</type>
+          <declname>msglen</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hashlen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1kyle_1_1filter__impl_1addcf4cd28bbe5c9cbaecf86e1f85013c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::kyle::filter_impl::~filter_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~filter_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1kyle_1_1filter__impl_1a59ba54c2b0c7dc244336fc6b6269f6b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void gr::kyle::filter_impl::forecast</definition>
+        <argsstring>(int noutput_items, gr_vector_int &amp;ninput_items_required)</argsstring>
+        <name>forecast</name>
+        <param>
+          <type>int</type>
+          <declname>noutput_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_int &amp;</type>
+          <declname>ninput_items_required</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1kyle_1_1filter__impl_1a8faeafa4a5e05424c0fc63209ba4a3aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gr::kyle::filter_impl::general_work</definition>
+        <argsstring>(int noutput_items, gr_vector_int &amp;ninput_items, gr_vector_const_void_star &amp;input_items, gr_vector_void_star &amp;output_items)</argsstring>
+        <name>general_work</name>
+        <param>
+          <type>int</type>
+          <declname>noutput_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_int &amp;</type>
+          <declname>ninput_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_const_void_star &amp;</type>
+          <declname>input_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_void_star &amp;</type>
+          <declname>output_items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="43" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>gr::kyle::filter</label>
+        <link refid="classgr_1_1kyle_1_1filter"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>gr::block</label>
+      </node>
+      <node id="5">
+        <label>gr::kyle::filter_impl</label>
+        <link refid="classgr_1_1kyle_1_1filter__impl"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>gr::kyle::filter</label>
+        <link refid="classgr_1_1kyle_1_1filter"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>gr::block</label>
+      </node>
+      <node id="8">
+        <label>gr::kyle::filter_impl</label>
+        <link refid="classgr_1_1kyle_1_1filter__impl"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/kh/gr-kyle/lib/filter_impl.h" line="31" column="1" bodyfile="/home/kh/gr-kyle/lib/filter_impl.h" bodystart="30" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classgr_1_1kyle_1_1filter__impl_1a6bea070aa1d7b969b0dbee4050faf399" prot="public" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>filter_impl</name></member>
+      <member refid="classgr_1_1kyle_1_1filter__impl_1a59ba54c2b0c7dc244336fc6b6269f6b2" prot="public" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>forecast</name></member>
+      <member refid="classgr_1_1kyle_1_1filter__impl_1a8faeafa4a5e05424c0fc63209ba4a3aa" prot="public" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>general_work</name></member>
+      <member refid="classgr_1_1kyle_1_1filter__impl_1ac6af5ce524267e9dc511922d41957a24" prot="private" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>hash</name></member>
+      <member refid="classgr_1_1kyle_1_1filter_1a0f942381b97735f534406e8df0c089b3" prot="public" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>make</name></member>
+      <member refid="classgr_1_1kyle_1_1filter__impl_1ae6a804bd3fd978e6a4008ac95324be64" prot="private" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>prev</name></member>
+      <member refid="classgr_1_1kyle_1_1filter_1af6b5ef2e468f1c0515e3dd7a29e199f1" prot="public" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>sptr</name></member>
+      <member refid="classgr_1_1kyle_1_1filter__impl_1addcf4cd28bbe5c9cbaecf86e1f85013c" prot="public" virt="non-virtual"><scope>gr::kyle::filter_impl</scope><name>~filter_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

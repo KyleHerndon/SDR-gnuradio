@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classgr_1_1kyle_1_1hash__impl" kind="class" language="C++" prot="public">
+    <compoundname>gr::kyle::hash_impl</compoundname>
+    <basecompoundref refid="classgr_1_1kyle_1_1hash" prot="public" virt="non-virtual">gr::kyle::hash</basecompoundref>
+    <includes refid="hash__impl_8h" local="no">hash_impl.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classgr_1_1kyle_1_1hash__impl_1aae29ddc938a69779689f8543819e085d" prot="private" static="no" mutable="no">
+        <type>boost::hash&lt; unsigned int &gt;</type>
+        <definition>boost::hash&lt;unsigned int&gt; gr::kyle::hash_impl::hash</definition>
+        <argsstring></argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/hash_impl.h" line="33" column="1" bodyfile="/home/kh/gr-kyle/lib/hash_impl.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classgr_1_1kyle_1_1hash__impl_1a7ef2b6224f0748548f24c390d97e47d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::kyle::hash_impl::hash_impl</definition>
+        <argsstring>(int msglen, int hashlen)</argsstring>
+        <name>hash_impl</name>
+        <param>
+          <type>int</type>
+          <declname>msglen</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hashlen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/hash_impl.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1kyle_1_1hash__impl_1a8c747540f6fc13c074f057d9d42ac06f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>gr::kyle::hash_impl::~hash_impl</definition>
+        <argsstring>()</argsstring>
+        <name>~hash_impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/hash_impl.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classgr_1_1kyle_1_1hash__impl_1a873de3033feefd3309f953940f731f88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gr::kyle::hash_impl::work</definition>
+        <argsstring>(int noutput_items, gr_vector_const_void_star &amp;input_items, gr_vector_void_star &amp;output_items)</argsstring>
+        <name>work</name>
+        <param>
+          <type>int</type>
+          <declname>noutput_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_const_void_star &amp;</type>
+          <declname>input_items</declname>
+        </param>
+        <param>
+          <type>gr_vector_void_star &amp;</type>
+          <declname>output_items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/lib/hash_impl.h" line="40" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="16">
+        <label>gr::kyle::hash_impl</label>
+        <link refid="classgr_1_1kyle_1_1hash__impl"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>gr::kyle::hash</label>
+        <link refid="classgr_1_1kyle_1_1hash"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>gr::sync_interpolator</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="19">
+        <label>gr::kyle::hash_impl</label>
+        <link refid="classgr_1_1kyle_1_1hash__impl"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>gr::kyle::hash</label>
+        <link refid="classgr_1_1kyle_1_1hash"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>gr::sync_interpolator</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/kh/gr-kyle/lib/hash_impl.h" line="31" column="1" bodyfile="/home/kh/gr-kyle/lib/hash_impl.h" bodystart="30" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classgr_1_1kyle_1_1hash__impl_1aae29ddc938a69779689f8543819e085d" prot="private" virt="non-virtual"><scope>gr::kyle::hash_impl</scope><name>hash</name></member>
+      <member refid="classgr_1_1kyle_1_1hash__impl_1a7ef2b6224f0748548f24c390d97e47d9" prot="public" virt="non-virtual"><scope>gr::kyle::hash_impl</scope><name>hash_impl</name></member>
+      <member refid="classgr_1_1kyle_1_1hash_1afd28f2339ca97ee336acc9a1a8154ad8" prot="public" virt="non-virtual"><scope>gr::kyle::hash_impl</scope><name>make</name></member>
+      <member refid="classgr_1_1kyle_1_1hash_1a271e31ae89c8b3ba38fce2e2dd487aef" prot="public" virt="non-virtual"><scope>gr::kyle::hash_impl</scope><name>sptr</name></member>
+      <member refid="classgr_1_1kyle_1_1hash__impl_1a873de3033feefd3309f953940f731f88" prot="public" virt="non-virtual"><scope>gr::kyle::hash_impl</scope><name>work</name></member>
+      <member refid="classgr_1_1kyle_1_1hash__impl_1a8c747540f6fc13c074f057d9d42ac06f" prot="public" virt="non-virtual"><scope>gr::kyle::hash_impl</scope><name>~hash_impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

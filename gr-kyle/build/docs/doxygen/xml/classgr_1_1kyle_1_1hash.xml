@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="classgr_1_1kyle_1_1hash" kind="class" language="C++" prot="public">
+    <compoundname>gr::kyle::hash</compoundname>
+    <basecompoundref prot="public" virt="virtual">sync_interpolator</basecompoundref>
+    <derivedcompoundref refid="classgr_1_1kyle_1_1hash__impl" prot="public" virt="non-virtual">gr::kyle::hash_impl</derivedcompoundref>
+    <includes refid="hash_8h" local="no">hash.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classgr_1_1kyle_1_1hash_1a271e31ae89c8b3ba38fce2e2dd487aef" prot="public" static="no">
+        <type>boost::shared_ptr&lt; <ref refid="classgr_1_1kyle_1_1hash" kindref="compound">hash</ref> &gt;</type>
+        <definition>typedef boost::shared_ptr&lt;hash&gt; gr::kyle::hash::sptr</definition>
+        <argsstring></argsstring>
+        <name>sptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/include/kyle/hash.h" line="39" column="1" bodyfile="/home/kh/gr-kyle/include/kyle/hash.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classgr_1_1kyle_1_1hash_1afd28f2339ca97ee336acc9a1a8154ad8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classgr_1_1kyle_1_1hash_1a271e31ae89c8b3ba38fce2e2dd487aef" kindref="member">sptr</ref></type>
+        <definition>static sptr gr::kyle::hash::make</definition>
+        <argsstring>(int msglen, int hashlen)</argsstring>
+        <name>make</name>
+        <param>
+          <type>int</type>
+          <declname>msglen</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hashlen</declname>
+        </param>
+        <briefdescription>
+<para>Return a shared_ptr to a new instance of <ref refid="classgr_1_1kyle_1_1hash" kindref="compound">kyle::hash</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para>To avoid accidental use of raw pointers, <ref refid="classgr_1_1kyle_1_1hash" kindref="compound">kyle::hash</ref>&apos;s constructor is in a private implementation class. <ref refid="classgr_1_1kyle_1_1hash_1afd28f2339ca97ee336acc9a1a8154ad8" kindref="member">kyle::hash::make</ref> is the public interface for creating new instances. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/kh/gr-kyle/include/kyle/hash.h" line="49" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>&lt;+description of block+&gt; </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="13">
+        <label>gr::kyle::hash_impl</label>
+        <link refid="classgr_1_1kyle_1_1hash__impl"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>gr::kyle::hash</label>
+        <link refid="classgr_1_1kyle_1_1hash"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>gr::sync_interpolator</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="14">
+        <label>gr::kyle::hash</label>
+        <link refid="classgr_1_1kyle_1_1hash"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>gr::sync_interpolator</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/kh/gr-kyle/include/kyle/hash.h" line="37" column="1" bodyfile="/home/kh/gr-kyle/include/kyle/hash.h" bodystart="36" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classgr_1_1kyle_1_1hash_1afd28f2339ca97ee336acc9a1a8154ad8" prot="public" virt="non-virtual"><scope>gr::kyle::hash</scope><name>make</name></member>
+      <member refid="classgr_1_1kyle_1_1hash_1a271e31ae89c8b3ba38fce2e2dd487aef" prot="public" virt="non-virtual"><scope>gr::kyle::hash</scope><name>sptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

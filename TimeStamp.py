@@ -1,7 +1,7 @@
 import time, sys;
 import struct
 from BinaryConverterFunctions import float_dec2bin, float_bin2dec
-from hashlib import md5
+import hashlib
 
 fileName = sys.argv[1]
 waitTime = float(sys.argv[2])
@@ -16,18 +16,18 @@ while(True):
     data = struct.pack('f', s)
     (data2,) = struct.unpack('f',data)
 
-    h = md5.new()
-    h.update(data2)
-    h.digest()
+    h = hashlib.md5()
+    h.update(str(data2))
+    h = h.digest()
     
-    chksum = struct.pack('l', h[-4:])
+    chksum = h[-4:]
 
     print(s)
 
-    f.write(chksum)
+    #f.write(chksum)
     f.write(data)
 
-    time.sleep(waitTime)
+    #time.sleep(waitTime)
 f.close()
 
 

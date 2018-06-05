@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="classgr_1_1kyle_1_1filter" kind="class"><name>gr::kyle::filter</name>
+    <member refid="classgr_1_1kyle_1_1filter_1af6b5ef2e468f1c0515e3dd7a29e199f1" kind="typedef"><name>sptr</name></member>
+    <member refid="classgr_1_1kyle_1_1filter_1a0f942381b97735f534406e8df0c089b3" kind="function"><name>make</name></member>
+  </compound>
+  <compound refid="classgr_1_1kyle_1_1filter__impl" kind="class"><name>gr::kyle::filter_impl</name>
+    <member refid="classgr_1_1kyle_1_1filter__impl_1ac6af5ce524267e9dc511922d41957a24" kind="variable"><name>hash</name></member>
+    <member refid="classgr_1_1kyle_1_1filter__impl_1ae6a804bd3fd978e6a4008ac95324be64" kind="variable"><name>prev</name></member>
+    <member refid="classgr_1_1kyle_1_1filter__impl_1a6bea070aa1d7b969b0dbee4050faf399" kind="function"><name>filter_impl</name></member>
+    <member refid="classgr_1_1kyle_1_1filter__impl_1addcf4cd28bbe5c9cbaecf86e1f85013c" kind="function"><name>~filter_impl</name></member>
+    <member refid="classgr_1_1kyle_1_1filter__impl_1a59ba54c2b0c7dc244336fc6b6269f6b2" kind="function"><name>forecast</name></member>
+    <member refid="classgr_1_1kyle_1_1filter__impl_1a8faeafa4a5e05424c0fc63209ba4a3aa" kind="function"><name>general_work</name></member>
+  </compound>
+  <compound refid="classgr_1_1kyle_1_1hash" kind="class"><name>gr::kyle::hash</name>
+    <member refid="classgr_1_1kyle_1_1hash_1a271e31ae89c8b3ba38fce2e2dd487aef" kind="typedef"><name>sptr</name></member>
+    <member refid="classgr_1_1kyle_1_1hash_1afd28f2339ca97ee336acc9a1a8154ad8" kind="function"><name>make</name></member>
+  </compound>
+  <compound refid="classgr_1_1kyle_1_1hash__impl" kind="class"><name>gr::kyle::hash_impl</name>
+    <member refid="classgr_1_1kyle_1_1hash__impl_1aae29ddc938a69779689f8543819e085d" kind="variable"><name>hash</name></member>
+    <member refid="classgr_1_1kyle_1_1hash__impl_1a7ef2b6224f0748548f24c390d97e47d9" kind="function"><name>hash_impl</name></member>
+    <member refid="classgr_1_1kyle_1_1hash__impl_1a8c747540f6fc13c074f057d9d42ac06f" kind="function"><name>~hash_impl</name></member>
+    <member refid="classgr_1_1kyle_1_1hash__impl_1a873de3033feefd3309f953940f731f88" kind="function"><name>work</name></member>
+  </compound>
+  <compound refid="namespacegr" kind="namespace"><name>gr</name>
+  </compound>
+  <compound refid="namespacegr_1_1kyle" kind="namespace"><name>gr::kyle</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="api_8h" kind="file"><name>api.h</name>
+    <member refid="api_8h_1ac8c07ac18a1a1e0bacf8c534cbb4b34f" kind="define"><name>KYLE_API</name></member>
+  </compound>
+  <compound refid="filter_8h" kind="file"><name>filter.h</name>
+  </compound>
+  <compound refid="filter__impl_8h" kind="file"><name>filter_impl.h</name>
+  </compound>
+  <compound refid="group__defs_8dox" kind="file"><name>group_defs.dox</name>
+  </compound>
+  <compound refid="hash_8h" kind="file"><name>hash.h</name>
+  </compound>
+  <compound refid="hash__impl_8h" kind="file"><name>hash_impl.h</name>
+  </compound>
+  <compound refid="main__page_8dox" kind="file"><name>main_page.dox</name>
+  </compound>
+  <compound refid="group__block" kind="group"><name>block</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_f73b3e789a585c86a3358eb3b7617505" kind="dir"><name>kyle</name>
+  </compound>
+  <compound refid="dir_97aefd0d527b934f1d99a682da8fe6a9" kind="dir"><name>lib</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>
